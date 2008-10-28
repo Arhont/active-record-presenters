@@ -17,7 +17,7 @@ This means you get an object oriented interface to helpers, and it avoids clutte
 Installation instructions
 =========================
 
-* Install the plugin with 'ruby /script/install plugin git://github.com/leethal/active-record-presenters.git'
+* Install the plugin with 'ruby script/plugin install git://github.com/leethal/active-record-presenters.git'
 * Finished!
 
 Usage
