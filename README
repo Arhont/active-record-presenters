@@ -11,6 +11,8 @@ turns into
 
  <%= @post.presents.title %>
 
+This means you get an object oriented interface to helpers, and it avoids cluttering your models with presentation logic.
+
 
 Installation instructions
 =========================
