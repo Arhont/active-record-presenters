@@ -1,0 +1,47 @@
+Active Record Presenters
+========================
+
+Object oriented helpers. An alternative to passing objects around. This helper:
+
+ def make_title(post)
+   post.title.titleize
+ end
+
+turns into
+
+ <%= @post.presents.title %>
+
+
+Installation instructions
+=========================
+
+* Install the plugin with 'ruby /script/install plugin git://github.com/leethal/active-record-presenters.git'
+* Finished!
+
+Usage
+=====
+
+You have to create one presenter per model. Use 'ruby script/generate presenter model_name'. Assuming you have a Post model:
+
+ ruby script/generate presenter post
+
+This creates app/presenters/post_presenter. For the purpose of understanding how it works, make it look like this:
+
+ class PostPresenter < Presenter
+   def title
+     object.title.titleize
+   end
+ 
+   def textilized_body
+     helpers.textilize(object.body)
+   end
+ end
+
+The methods defined by the presenter is available through Post#presenter. Example usage in a view:
+
+ <% @posts.each do |post| %>
+   <h2><%= post.presents.title %></h2>
+   <%= post.presents.textilized_body %>
+ <% end %>
+
+In the presenter, 'object' refers to the instance of Post, and 'helpers' refers to helper methods. You can call any helper here, such as helpers.content_tag, helpers.text_field_tag etc.
