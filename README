@@ -46,4 +46,4 @@ The methods defined by the presenter is available through Post#presenter. Exampl
    <%= post.presents.textilized_body %>
  <% end %>
 
-In the presenter, 'object' refers to the instance of Post, and 'helpers' refers to helper methods. You can call any helper here, such as helpers.content_tag, helpers.text_field_tag etc.
+In the presenter, 'object' refers to the instance of Post, and 'helpers' refers to helper methods. You can call any helper here, such as helpers.content_tag, helpers.time_ago_in_words etc.
