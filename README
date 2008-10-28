@@ -23,7 +23,7 @@ Installation instructions
 Usage
 =====
 
-You have to create one presenter per model. Use 'ruby script/generate presenter model_name'. Assuming you have a Post model:
+You have to create one presenter per model you want to add presenter functionality to. Use 'ruby script/generate presenter model_name'. Assuming you have a Post model:
 
  ruby script/generate presenter post
 
