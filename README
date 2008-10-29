@@ -7,7 +7,13 @@ Object oriented helpers. An alternative to passing objects around. This helper:
    post.title.titleize
  end
 
+ <%= make_title(@post) %>
+
 turns into
+
+ def title
+   object.title.titleize
+ end
 
  <%= @post.presents.title %>
 
