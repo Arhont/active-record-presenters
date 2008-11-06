@@ -22,14 +22,14 @@ turns into
 
  <%= @post.presents.title %>
 
-This means you get an object oriented interface to helpers, and it avoids cluttering your models with presentation logic.
-
+A lot more object oriented. You could have done this in the model as well, but I prefer to avoid having presentation logic in models.
 
 Installation instructions
 =========================
 
 * Install the plugin with 'ruby script/plugin install git://github.com/leethal/active-record-presenters.git'
-* Finished!
+* ????
+* Profit!
 
 Usage
 =====
