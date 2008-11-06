@@ -1,3 +1,8 @@
+FYI
+===
+
+This plugin is not the same as ActivePresenter (http://github.com/giraffesoft/active_presenter/tree). ActivePresenter is for handling multiple models in one form. Active Record Presenters (this plugin) is an alternative/supplement to view helpers. I should probably change the name of this plugin to avoid the name clash.
+
 Active Record Presenters
 ========================
 
