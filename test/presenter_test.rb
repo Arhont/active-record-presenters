@@ -39,13 +39,13 @@ class PostPresenter < Presenter
   end
 
   def body
-    helpers.textilize(object.body)
+    helpers.truncate(object.body, :length => 5)
   end
 end
 
 class PesenterTest < Test::Unit::TestCase
   def setup
-    @post = Post.create(:title => "Hello to you", :body => "Yes, a *post*!")
+    @post = Post.create(:title => "Hello to you", :body => "Yes, a post!")
   end
 
   def test_presenting_title
@@ -53,7 +53,7 @@ class PesenterTest < Test::Unit::TestCase
   end
 
   def test_presenting_body
-    assert_equal "<p>Yes, a <strong>post</strong>!</p>", @post.presents.body
+    assert_equal "Ye...", @post.presents.body
   end
 
   def test_no_presenter
