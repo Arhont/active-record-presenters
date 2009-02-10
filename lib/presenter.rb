@@ -6,6 +6,11 @@ class Presenter
   end
 
   def helpers
-    ActionController::Base.helpers
+    @_helpers ||= HelperProxy.new
+  end
+  
+  # There's some meat in init.rb
+  class HelperProxy
+    include ActionView::Helpers
   end
 end
