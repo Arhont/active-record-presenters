@@ -1,28 +1,28 @@
-FYI
-===
 
-This plugin is not the same as ActivePresenter (http://github.com/giraffesoft/active_presenter/tree). ActivePresenter is for handling multiple models in one form. Active Record Presenters (this plugin) is an alternative/supplement to view helpers. I should probably change the name of this plugin to avoid the name clash.
 
 Active Record Presenters
 ========================
 
-Object oriented helpers. An alternative to passing objects around. This helper:
+Object oriented helpers. An alternative to passing objects around to methods defined in app/helpers/*.
 
- def make_title(post)
-   post.title.titleize
+ # app/presenters/post_presenter.rb
+ class PostPresenter
+   def timestamp
+     "Created #{object.created_at.strftime("%d")}"
+   end
  end
 
- <%= make_title(@post) %>
+  <%= @post.presents.timestamp %>
 
-turns into
+Instead of:
 
- def title
-   object.title.titleize
- end
+  def post_timestamp(post)
+	  "Created #{post.created_at.strftime("%d")}"
+  end
 
- <%= @post.presents.title %>
+  <%= post_timestamp(@post) %>
 
-A lot more object oriented. You could have done this in the model as well, but I prefer to avoid having presentation logic in models.
+Presenters are generated with "ruby script/generate presenter [my_model]".
 
 Installation instructions
 =========================
@@ -58,3 +58,8 @@ The methods defined by the presenter is available through Post#presenter. Exampl
  <% end %>
 
 In the presenter, 'object' refers to the instance of Post, and 'helpers' refers to helper methods. You can call any helper here, such as helpers.content_tag, helpers.time_ago_in_words etc.
+
+FYI
+===
+
+This plugin is not the same as ActivePresenter (http://github.com/giraffesoft/active_presenter/tree). ActivePresenter is for handling multiple models in one form. Active Record Presenters (this plugin) is an alternative/supplement to view helpers. I should probably change the name of this plugin to avoid the name clash.
