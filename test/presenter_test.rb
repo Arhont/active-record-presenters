@@ -12,11 +12,11 @@ class << Rails
 end
 
 # The paths.
-$: << File.join(File.dirname(__FILE__), '..', 'lib')
+require File.join(File.dirname(__FILE__), '..', 'lib/presenter.rb')
 require File.join(File.dirname(__FILE__), '..', 'init.rb')
 
 # The database
-ActiveRecord::Base.establish_connection(:adapter => "sqlite3", :dbfile => ":memory:")
+ActiveRecord::Base.establish_connection(:adapter => "sqlite3", :database => ":memory:")
 ActiveRecord::Schema.define(:version => 1) do
   create_table :posts do |t|
     t.string :title
@@ -33,7 +33,7 @@ class Post < ActiveRecord::Base; end
 class Foo < ActiveRecord::Base; end
 
 # A presenter.
-class PostPresenter < Presenter
+class PostPresenter < Presenter::Base
   def title
     object.title.titleize
   end
