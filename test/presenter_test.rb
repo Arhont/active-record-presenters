@@ -13,7 +13,6 @@ end
 
 # The paths.
 require File.join(File.dirname(__FILE__), '..', 'lib/presenter.rb')
-require File.join(File.dirname(__FILE__), '..', 'init.rb')
 
 # The database
 ActiveRecord::Base.establish_connection(:adapter => "sqlite3", :database => ":memory:")
