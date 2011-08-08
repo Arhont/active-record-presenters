@@ -1,4 +1,3 @@
-require File.join(File.dirname(__FILE__), 'presenter/version.rb')
 require File.join(File.dirname(__FILE__), 'presenter/active_record_extension.rb')
 require File.join(File.dirname(__FILE__), 'presenter/action_controller_extension.rb')
 
