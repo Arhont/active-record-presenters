@@ -3,7 +3,7 @@ $:.push File.expand_path("../lib", __FILE__)
 require "presenter/version"
 
 Gem::Specification.new do |s|
-  s.name        = "active_record_presenter"
+  s.name        = "active-record-presenters"
   s.version     = Presenter::VERSION
   s.authors     = ["August Lilleaas"]
   s.email       = ["august@augustl.com"]
