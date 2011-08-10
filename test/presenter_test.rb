@@ -25,11 +25,18 @@ ActiveRecord::Schema.define(:version => 1) do
   create_table :foos do |t|
     t.string :lulz
   end
+
+  create_table :bars do |t|
+    t.string :name
+  end
 end
 
 # Models
 class Post < ActiveRecord::Base; end
 class Foo < ActiveRecord::Base; end
+class Bar < ActiveRecord::Base
+  presenter :asd
+end
 
 # A presenter.
 class PostPresenter < Presenter::Base
@@ -42,7 +49,13 @@ class PostPresenter < Presenter::Base
   end
 end
 
-class PesenterTest < Test::Unit::TestCase
+class AsdPresenter < Presenter::Base
+  def foo
+    'foo'
+  end
+end
+
+class PresenterTest < Test::Unit::TestCase
   def setup
     @post = Post.create(:title => "Hello to you", :body => "Yes, a post!")
   end
@@ -58,5 +71,10 @@ class PesenterTest < Test::Unit::TestCase
   def test_no_presenter
     f = Foo.new
     assert_raises(ActiveRecord::NoPresenter) { f.presents.nothing }
+  end
+
+  def test_with_custom_presenter
+    a = Bar.new
+    assert_equal 'foo', a.presents.foo
   end
 end
