@@ -40,6 +40,8 @@ end
 
 # A presenter.
 class PostPresenter < Presenter::Base
+  delegate :id, :to => :object
+
   def title
     object.title.titleize
   end
@@ -66,6 +68,16 @@ class PresenterTest < Test::Unit::TestCase
 
   def test_presenting_body
     assert_equal "Ye...", @post.presents.body
+  end
+
+  def test_passing_block_to_presents
+    result = []
+    @post.presents do |p|
+      result << p.id   # get from model
+      result << p.body # get from presenter
+    end
+    assert result[0].instance_of? Fixnum
+    assert result[1].instance_of? String
   end
 
   def test_no_presenter

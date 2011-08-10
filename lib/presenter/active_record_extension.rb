@@ -12,6 +12,7 @@ module ActiveRecord
 
     def presents
       @presenter ||= set_presenter
+      block_given? ? yield(@presenter) : @presenter
     end
     alias :presenter :presents
 
